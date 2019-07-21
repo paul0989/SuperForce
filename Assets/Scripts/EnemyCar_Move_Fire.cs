@@ -17,6 +17,11 @@ public class EnemyCar_Move_Fire : MonoBehaviour {
     //觸發移動距離
     public int Fire_Dis_Num = 70;
     //觸發開火距離
+    public GameObject Tire1;
+    public GameObject Tire2;
+    public GameObject Tire3;
+    public GameObject Tire4;
+
     private float Dis;
     //Enemy跟Player的距離
     private float i;
@@ -35,6 +40,11 @@ public class EnemyCar_Move_Fire : MonoBehaviour {
         if (Dis < Move_Dis_Num)
         //如果兩者實際距離<Move_Dis_Num
         {
+            Tire1.GetComponent<Rotate_Myself>().enabled = true;
+            Tire2.GetComponent<Rotate_Myself>().enabled = true;
+            Tire3.GetComponent<Rotate_Myself>().enabled = true;
+            Tire4.GetComponent<Rotate_Myself>().enabled = true;
+            //啟動輪胎旋轉
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, 0.05f);
             //從目前位置朝著(Player)方向前進,速度(0.05f)
             transform.LookAt(Player.transform);
@@ -57,5 +67,14 @@ public class EnemyCar_Move_Fire : MonoBehaviour {
                 }
             }
         }
-	}
+        else
+        {
+            Tire1.GetComponent<Rotate_Myself>().enabled = false;
+            Tire2.GetComponent<Rotate_Myself>().enabled = false;
+            Tire3.GetComponent<Rotate_Myself>().enabled = false;
+            Tire4.GetComponent<Rotate_Myself>().enabled = false;
+            //關閉輪胎旋轉
+
+        }
+    }
 }

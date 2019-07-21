@@ -21,8 +21,8 @@ public class Get_Gem : MonoBehaviour {
             GetGem_Total.Gem_Num+=1;
             //寶石取得+1
             //print("Gem_Num:" + GetGem_Total.Gem_Num);
-            GetComponent<AudioSource>().PlayOneShot(Get_Sound);
-            Destroy(gameObject,0.4f);
+            //GetComponent<AudioSource>().PlayOneShot(Get_Sound);
+            Destroy(gameObject);
             //寶石刪除
         }
     }
