@@ -10,9 +10,14 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
     //子彈生成點
     public GameObject Fire_Particle;
     //開槍火花
-    public int Fire_Y = 1;
+    public AudioClip Fire_Sound;
+    //開槍音效
+
+    public int Fire_Y = -1;
     public int Fire_Z = 50;
     //子彈射擊出去的距離及高度
+    public float Move_Speed=0.05f;
+    //移動速度
     public int Move_Dis_Num = 100;
     //觸發移動距離
     public int Fire_Dis_Num = 70;
@@ -35,7 +40,7 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
         if (Dis < Move_Dis_Num)
         //如果兩者實際距離<Move_Dis_Num
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, 0.05f);
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
             //從目前位置朝著(Player)方向前進,速度(0.05f)
             transform.LookAt(Player.transform);
             //面朝(player)的方向
@@ -44,12 +49,14 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
             {
                 i += Time.deltaTime;
                 //重0開始隨時間累加上去
-                if(i>1)
+                if(i>3)
                 {
                     Rigidbody Bullet = Instantiate(Bullet_Source, Fire_Point.transform.position, Fire_Point.transform.rotation);
                     //生成子彈(Bullet_Source物件,Fire_Point位置,Fire_Point方向)
                     Instantiate(Fire_Particle, Fire_Point.transform.position, Fire_Point.transform.rotation);
-                    //生成開火特效
+                    //生成射擊特效
+                    GetComponent<AudioSource>().PlayOneShot(Fire_Sound);
+                    //播放射擊音效
                     Bullet.velocity = transform.TransformDirection(new Vector3(0, Fire_Y, Fire_Z));
                     //子彈加速度  控制加速度的方向 
                     i = 0;

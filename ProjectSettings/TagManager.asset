@@ -9,6 +9,11 @@ TagManager:
   - Rock
   - Enemy_Bullet
   - Gem
+  - Enemy_Car
+  - Enemy_Tank
+  - Healthpack
+  - EnemyTank_Bullet
+  - EnemyCar_Bullet
   layers:
   - Default
   - TransparentFX
@@ -18,8 +23,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Radar
+  - Map
   - 
   - 
   - 
