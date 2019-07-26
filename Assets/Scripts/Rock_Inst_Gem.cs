@@ -25,7 +25,7 @@ public class Rock_Inst_Gem : MonoBehaviour {
             Random_Num = Random.Range(0, 5);
             //0~4之間取五個亂數值出來
             print("Random_Num" + Random_Num);
-            if (Random_Num == 0)
+            if (Random_Num <2)
             {
                 Instantiate(Gem, Gem_point.transform.position, transform.rotation);
                 //生成(寶石,寶石點位置,寶石點方向)
