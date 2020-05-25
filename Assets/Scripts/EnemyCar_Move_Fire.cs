@@ -49,10 +49,10 @@ public class EnemyCar_Move_Fire : MonoBehaviour {
             Tire3.GetComponent<Rotate_Myself>().enabled = true;
             Tire4.GetComponent<Rotate_Myself>().enabled = true;
             //啟動輪胎旋轉
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
-            //從目前位置朝著(Player)方向前進,速度(0.05f)
             transform.LookAt(Player.transform);
             //面朝(player)的方向
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
+            //從目前位置朝著(Player)方向前進,速度(0.05f)
             if(Dis< Fire_Dis_Num)
             //如果實際距離<Fire_Dis_Num
             {

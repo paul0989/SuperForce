@@ -8,6 +8,19 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
     //子彈
     public GameObject Fire_Point;
     //子彈生成點
+    private Rigidbody TankForce;
+    //對Tank施力
+    private int count;
+    //測試施力次數用
+    Vector3 m_StartPos, m_StartForce;
+    Vector3 m_NewForce;
+
+    public float m_ForceX;
+    public float m_ForceY;
+    public float m_ForceZ;
+    //施加力量
+
+
     public GameObject Fire_Particle;
     //開槍火花
     public AudioClip Fire_Sound;
@@ -30,20 +43,55 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        TankForce = GetComponent<Rigidbody>();
+        count = 0;
+        //施力次數歸0
+        //m_NewForce = new Vector3(0f, 0f, 0f);
+        //m_ForceX = 0;
+        //m_ForceY = 0;
+
+        //m_StartPos = transform.position;
+        //m_StartForce = TankForce.transform.position;
+        //m_NewForce = new Vector3(m_ForceX, m_ForceY, m_ForceZ);
+
+
+    }
+    float timer = 0;
+    private void FixedUpdate()
+    {
+        //print("質量:" + TankForce.mass + " 施力次數:" + count);
         Dis = Vector3.Distance(transform.position, Player.transform.position);
+        timer += Time.deltaTime;
         //判斷距離(Enemy到Player的距離)
-        if (Dis < Move_Dis_Num)
-        //如果兩者實際距離<Move_Dis_Num
+        if (Dis < Move_Dis_Num && timer > 1.0f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
-            //從目前位置朝著(Player)方向前進,速度(0.05f)
             transform.LookAt(Player.transform);
             //面朝(player)的方向
+            //transform.position = m_StartPos;
+            //TankForce.transform.position = m_StartForce;
+            //TankForce.velocity = new Vector3(0f, 0f, 0f);
+
+            //TankForce.AddForce(0, 0, thrust, ForceMode.Force);
+            //TankForce.AddForce(transform.forward * thrust);
+            TankForce.AddForce(Vector3.forward*100);
+            timer = 0;
+            count++;
+
+        }
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+        Dis = Vector3.Distance(transform.position, Player.transform.position);
+        //判斷距離(Enemy到Player的距離)
+        //if (Dis < Move_Dis_Num)
+        //如果兩者實際距離<Move_Dis_Num
+        //{
+            //transform.LookAt(Player.transform);
+            //面朝(player)的方向
+            //transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
+            //從目前位置朝著(Player)方向前進,速度(0.05f)
             if(Dis< Fire_Dis_Num)
             //如果實際距離<Fire_Dis_Num
             {
@@ -63,6 +111,6 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
                     //計時器歸0
                 }
             }
-        }
+        //}
 	}
 }

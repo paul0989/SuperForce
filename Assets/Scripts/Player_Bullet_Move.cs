@@ -29,8 +29,8 @@ public class Player_Bullet_Move : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy_Car" || collision.gameObject.tag == "Enemy_Tank" || collision.gameObject.tag == "Rock")
         //碰到"Enemy_Car或Enemy_Tank"tag的物件
         {
-            Destroy(collision.gameObject, 0.3f);
-            //碰撞到的物件0.3f後消失
+            Destroy(collision.gameObject, 0.1f);
+            //碰撞到的物件0.1f後消失
         }
             Destroy(gameObject);
             //刪除子彈
