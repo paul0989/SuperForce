@@ -10,14 +10,16 @@ public class Player_Life : MonoBehaviour {
     //任務失敗UI
     public GameObject Game_Finish_UI;
     //任務成功UI
+
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Life_Num = 10;
         //重新開始時血量回復用
     }
 	
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update ()
     {
         if (Life_Num <= 0)
         {
@@ -35,10 +37,12 @@ public class Player_Life : MonoBehaviour {
             //過關後不要馬上跳回起始畫面
         }
     }
+
     IEnumerator GamePass()
     {
         yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene("Game_Start");
         //回到開啟遊戲畫面
     }
+
 }

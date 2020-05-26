@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     {
 
     }
+
     private void OnTriggerEnter(Collider collision)
     //取得寶石播放音樂
     {
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(Get_Sound);
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     //當物件碰撞到 物件時(可碰撞的對象帶有Collision 可碰撞對象引數名稱)
     {
@@ -35,7 +37,6 @@ public class Player : MonoBehaviour
         {
             GetComponent<AudioSource>().PlayOneShot(EnemyHit_Sound);
         }
-
-
     }
+
 }

@@ -5,15 +5,18 @@ using UnityEngine;
 public class Grnade_Explosion : MonoBehaviour {
     public GameObject Smoke;
     //爆炸(音效放粒子系統)
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     //當物件碰撞到 物件時(可碰撞的對象帶有Collision 可碰撞對象引數名稱)
     {
@@ -41,6 +44,6 @@ public class Grnade_Explosion : MonoBehaviour {
         //生成爆炸特效
         Destroy(gameObject);
         //刪除手榴彈
-
     }
+
 }

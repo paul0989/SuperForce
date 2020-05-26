@@ -41,8 +41,9 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
     //Enemy開火頻率(計時用)
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         TankForce = GetComponent<Rigidbody>();
         count = 0;
         //施力次數歸0
@@ -53,17 +54,18 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
         //m_StartPos = transform.position;
         //m_StartForce = TankForce.transform.position;
         //m_NewForce = new Vector3(m_ForceX, m_ForceY, m_ForceZ);
-
-
     }
+
     float timer = 0;
+
     private void FixedUpdate()
     {
         //print("質量:" + TankForce.mass + " 施力次數:" + count);
         Dis = Vector3.Distance(transform.position, Player.transform.position);
         timer += Time.deltaTime;
-        //判斷距離(Enemy到Player的距離)
+        
         if (Dis < Move_Dis_Num && timer > 1.0f)
+        //判斷距離(Enemy到Player的距離)
         {
             transform.LookAt(Player.transform);
             //面朝(player)的方向
@@ -76,41 +78,41 @@ public class EnemyTank_Move_Fire : MonoBehaviour {
             TankForce.AddForce(Vector3.forward*100);
             timer = 0;
             count++;
-
         }
 
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         Dis = Vector3.Distance(transform.position, Player.transform.position);
         //判斷距離(Enemy到Player的距離)
         //if (Dis < Move_Dis_Num)
         //如果兩者實際距離<Move_Dis_Num
         //{
-            //transform.LookAt(Player.transform);
-            //面朝(player)的方向
-            //transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
-            //從目前位置朝著(Player)方向前進,速度(0.05f)
-            if(Dis< Fire_Dis_Num)
-            //如果實際距離<Fire_Dis_Num
+        //transform.LookAt(Player.transform);
+        //面朝(player)的方向
+        //transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
+        //從目前位置朝著(Player)方向前進,速度(0.05f)
+        if (Dis < Fire_Dis_Num)
+        //如果實際距離<Fire_Dis_Num
+        {
+            i += Time.deltaTime;
+            //重0開始隨時間累加上去
+            if (i > 3)
             {
-                i += Time.deltaTime;
-                //重0開始隨時間累加上去
-                if(i>3)
-                {
-                    Rigidbody Bullet = Instantiate(Bullet_Source, Fire_Point.transform.position, Fire_Point.transform.rotation);
-                    //生成子彈(Bullet_Source物件,Fire_Point位置,Fire_Point方向)
-                    Instantiate(Fire_Particle, Fire_Point.transform.position, Fire_Point.transform.rotation);
-                    //生成射擊特效
-                    GetComponent<AudioSource>().PlayOneShot(Fire_Sound);
-                    //播放射擊音效
-                    Bullet.velocity = transform.TransformDirection(new Vector3(0, Fire_Y, Fire_Z));
-                    //子彈加速度  控制加速度的方向 
-                    i = 0;
-                    //計時器歸0
-                }
+                Rigidbody Bullet = Instantiate(Bullet_Source, Fire_Point.transform.position, Fire_Point.transform.rotation);
+                //生成子彈(Bullet_Source物件,Fire_Point位置,Fire_Point方向)
+                Instantiate(Fire_Particle, Fire_Point.transform.position, Fire_Point.transform.rotation);
+                //生成射擊特效
+                GetComponent<AudioSource>().PlayOneShot(Fire_Sound);
+                //播放射擊音效
+                Bullet.velocity = transform.TransformDirection(new Vector3(0, Fire_Y, Fire_Z));
+                //子彈加速度  控制加速度的方向 
+                i = 0;
+                //計時器歸0
             }
+        }
         //}
-	}
+    }
 }

@@ -10,17 +10,20 @@ public class Player_Bullet_Move : MonoBehaviour {
     public float Destroy_Time = 1.5f;
     //子彈刪除時間
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         Destroy(gameObject, Destroy_Time);
         //1.5秒後刪除
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //transform.Translate(0*Time.deltaTime,0*Time.deltaTime, MoveSpeed*Time.deltaTime);
         //無法偵測碰撞效果
-	}
+    }
+
     private void OnCollisionEnter(Collision collision)
     //當物件碰撞到 物件時(可碰撞的對象帶有Collision 可碰撞對象引數名稱)
     {
@@ -32,7 +35,7 @@ public class Player_Bullet_Move : MonoBehaviour {
             Destroy(collision.gameObject, 0.1f);
             //碰撞到的物件0.1f後消失
         }
-            Destroy(gameObject);
-            //刪除子彈
+        Destroy(gameObject);
+        //刪除子彈
     }
 }

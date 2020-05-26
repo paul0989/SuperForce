@@ -32,13 +32,15 @@ public class EnemyCar_Move_Fire : MonoBehaviour {
     //Enemy開火頻率(計時用)
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         Dis = Vector3.Distance(transform.position, Player.transform.position);
         //判斷距離(Enemy到Player的距離)
         if (Dis < Move_Dis_Num)
@@ -53,12 +55,12 @@ public class EnemyCar_Move_Fire : MonoBehaviour {
             //面朝(player)的方向
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, Move_Speed);
             //從目前位置朝著(Player)方向前進,速度(0.05f)
-            if(Dis< Fire_Dis_Num)
+            if (Dis < Fire_Dis_Num)
             //如果實際距離<Fire_Dis_Num
             {
                 i += Time.deltaTime;
                 //重0開始隨時間累加上去
-                if(i>1)
+                if (i > 1)
                 {
                     Rigidbody Bullet = Instantiate(Bullet_Source, Fire_Point.transform.position, Fire_Point.transform.rotation);
                     //生成子彈(Bullet_Source物件,Fire_Point位置,Fire_Point方向)

@@ -7,12 +7,14 @@ public class Get_Healthpack_Total : MonoBehaviour {
     //最大血量10
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

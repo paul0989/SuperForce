@@ -9,14 +9,17 @@ public class Rock_Inst_Gem : MonoBehaviour {
     //寶石生成點
     private int Random_Num;
     // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag=="Player_bullet" || collision.gameObject.tag == "Grnade")
@@ -30,6 +33,8 @@ public class Rock_Inst_Gem : MonoBehaviour {
                 Instantiate(Gem, Gem_point.transform.position, transform.rotation);
                 //生成(寶石,寶石點位置,寶石點方向)
             }
+
         }
     }
+
 }

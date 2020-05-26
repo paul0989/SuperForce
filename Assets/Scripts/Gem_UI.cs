@@ -10,15 +10,18 @@ public class Gem_UI : MonoBehaviour {
     //UI元件
     public Sprite[] Sprite_Texture;
     //Sprite圖片
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (GetGem_Total.Gem_Num == 0)
-            //取得0顆寶石
+
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (GetGem_Total.Gem_Num == 0)
+        //取得0顆寶石
         {
             Show_Gem_UI[0].sprite = Sprite_Texture[0];
             Show_Gem_UI[1].sprite = Sprite_Texture[0];

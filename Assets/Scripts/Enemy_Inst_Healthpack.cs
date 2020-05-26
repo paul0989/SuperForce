@@ -8,15 +8,19 @@ public class Enemy_Inst_Healthpack : MonoBehaviour {
     public GameObject Healthpack_point;
     //補血包生成點
     private int Random_Num;
+
     // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag=="Player_bullet" || collision.gameObject.tag == "Grnade")

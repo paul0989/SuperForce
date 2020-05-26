@@ -17,6 +17,7 @@ public class Get_Healthpack : MonoBehaviour
     {
 
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -33,6 +34,5 @@ public class Get_Healthpack : MonoBehaviour
             Destroy(gameObject);
             //寶石刪除
         }
-
     }
 }

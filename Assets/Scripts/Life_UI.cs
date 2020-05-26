@@ -10,12 +10,14 @@ public class Life_UI : MonoBehaviour {
     //Sprite圖片
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (Player_Life.Life_Num == 10)
         //血量10(陣列0~9)
         {
@@ -62,6 +64,6 @@ public class Life_UI : MonoBehaviour {
             Show_Life_UI.enabled = false;
             //血量0的時候關掉
         }
-
     }
+
 }
